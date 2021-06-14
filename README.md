@@ -8,7 +8,7 @@ computer or laptop ☺️.
 
 ## Feedback and Live Review
 
-Feel free to give [feedback]() to me on Frontend Mentor and here is
+Feel free to give [feedback](https://www.frontendmentor.io/solutions/3-column-card-component-html5-css3-sass-M2zWirycr) to me on Frontend Mentor and here is
 [live review](https://3-column-card-component-vs.netlify.app/)
 
 ## Tools
