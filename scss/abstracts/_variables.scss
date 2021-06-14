@@ -1,0 +1,37 @@
+$default-html-font-size: 100% !default;
+$black: rgb(17, 17, 17) !default;
+$white: rgb(255, 255, 255) !default;
+
+// Specific Variables Only For this project
+
+/// PRIMARY COLORS ///
+$bright-orange: hsl(31, 77%, 52%);
+$dark-cyan: hsl(184, 100%, 22%);
+$very-dark-cyan: hsl(179, 100%, 13%);
+
+/// NEUTRAL COLOR ///
+$transparent-white: hsla(0, 0%, 100%, 0.75);
+$very-light-gray: hsl(0, 0%, 95%);
+
+/// USE CASES ///
+$paragraphs-color: $transparent-white;
+$body-bg-color: $very-light-gray;
+$headings-color: $very-light-gray;
+$buttons-color: $very-light-gray;
+
+/// FONTS FAMILY ///
+$ff-lexend-deca: 'Lexend Deca', sans-serif;
+$ff-big-shoulders-display: 'Big Shoulders Display', sans-serif;
+
+// Breakpoints
+$breakpoints-up: (
+  'small': 31.25em,
+  'medium': 43.75em,
+  'large': 75em
+);
+
+$breakpoints-down: (
+  'small': 31.1875em,
+  'medium': 43.6875em,
+  'large': 74.9375em
+);

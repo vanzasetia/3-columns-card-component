@@ -1,0 +1,49 @@
+@use 'sass:math';
+@use 'variables' as *;
+
+// Set base font size
+@function base($base-font-size) {
+  @if unitless($base-font-size) or math.unit($base-font-size) != '%' {
+    @error "Sorry, this #{$default-html-font-size} must have percentage unit!";
+  }
+
+  @return math.div($base-font-size, 100%) * 16;
+}
+
+// Change px to rem
+@function rem($value, $round-up: false, $round-down: false) {
+  @if unitless($value) {
+    $base-size: base($default-html-font-size);
+
+    @if $round-down == false and $round-up == false {
+      @return math.div($value, $base-size) * 1rem;
+    } @else if $round-down and $round-up == false {
+      @return math.floor(math.div($value, $base-size) * 1rem);
+    } @else if $round-up and $round-down == false {
+      @return math.ceil(math.div($value, $base-size) * 1rem);
+    } @else if $round-up and $round-down {
+      @error "Sorry, I can't round up and round down your number at the same time. Please choose one or change me!";
+    }
+  }
+
+  @error "Sorry, this '#{$value}' must have not any unit";
+}
+
+// Lighten the color slightly
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// Darken the color slightly
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Set color based on background color
+@function set-color($color) {
+  @if lightness($color) > 60 {
+    @return $black;
+  }
+
+  @return $white;
+}

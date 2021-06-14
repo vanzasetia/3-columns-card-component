@@ -1,0 +1,155 @@
+@charset 'utf-8';
+@use './abstracts' as *;
+
+/// RESETS ///
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  background-color: $body-bg-color;
+  min-height: 100vh;
+  padding: rem(60) 0;
+  font-family: $ff-lexend-deca;
+  font-size: rem(15);
+}
+
+main {
+  width: 100%;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: $headings-color;
+  font-family: $ff-big-shoulders-display;
+}
+
+p {
+  line-height: 1.6;
+  color: $paragraphs-color;
+}
+
+a {
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+/// CONTAINER ///
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  padding: rem(22);
+
+  @supports (display: grid) {
+    display: grid;
+  }
+
+  @include breakpoint-down('large') {
+    max-width: rem(500);
+  }
+
+  @include breakpoint-up('large') {
+    flex-direction: row;
+    justify-content: center;
+    max-width: rem(1000);
+
+    & > * {
+      flex: 0 0 rem(300);
+    }
+
+    @supports (display: grid) {
+      grid-template-columns: repeat(3, rem(300));
+      justify-content: center;
+    }
+  }
+}
+
+/// BUTTON ///
+.btn {
+  display: inline-block;
+  margin: rem(24) 0;
+  border: 1px solid $buttons-color;
+  border-radius: 3em;
+  background-color: $buttons-color;
+  cursor: pointer;
+  padding: rem(16) rem(32);
+  transition: all 250ms ease-in-out;
+
+  @include breakpoint-up('medium') {
+    margin-top: rem(50);
+  }
+
+  @include breakpoint-up('large') {
+    margin-top: rem(100);
+  }
+
+  @include on-event() {
+    outline: none;
+    background-color: transparent;
+    color: $buttons-color;
+  }
+
+  &--sedans {
+    color: $bright-orange;
+  }
+
+  &--suvs {
+    color: $dark-cyan;
+  }
+
+  &--luxury {
+    color: $very-dark-cyan;
+  }
+}
+
+/// CARD ///
+.card {
+  $border-radius: 0.5em;
+
+  padding: rem(45);
+
+  &__heading {
+    margin: rem(24) 0;
+    font-size: rem(40);
+  }
+
+  &:first-child {
+    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+
+    @include breakpoint-up('large') {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: $border-radius;
+    }
+  }
+
+  &:last-child {
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+
+    @include breakpoint-up('large') {
+      border-top-right-radius: $border-radius;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &--sedans {
+    background-color: $bright-orange;
+  }
+
+  &--suvs {
+    background-color: $dark-cyan;
+  }
+
+  &--luxury {
+    background-color: $very-dark-cyan;
+  }
+}
